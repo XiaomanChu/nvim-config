@@ -31,6 +31,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-c>", ":bd<CR>", opts)  -- close current buffer
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -57,9 +58,19 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>f/", ":Telescope current_buffer_fuzzy_find<CR>", opts)
+keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
+
+-- ToggleTerm
+-- tips: to open another terminal, press <ESC> inside the current terminal,
+--       then press 2<C-\>.
+--       to switch between terminals, press <C-h>, <C-l>, <C-j>, <C-k>.
+keymap("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", opts)  -- open a horizontal terminal
+keymap("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", opts)  -- open a vertical terminal
+keymap("n", "<leader>tf", ":ToggleTerm direction=float<CR>", opts)  -- open a float terminal
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
